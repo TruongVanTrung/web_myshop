@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JQUERY</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+
+		//hide,show,toggle
+		    $("#hide").click(function(){
+		       $("#pp").hide();
+		    });
+		    $("#show").click(function(){
+		       $("#pp").show();
+		    });
+		    $("#toggle").click(function(){
+		       $("#pp").toggle();
+		    });
+
+		//fadeIn, FadeOut, FadeToggle, FadeTo.
+			$("#button1").click(function(){
+			    $("#div1").fadeIn();
+			    $("#div2").fadeIn("slow");
+			    $("#div3").fadeIn(2000);
+  			});
+  			$("#button2").click(function(){
+			    $("#div1").fadeOut();
+			    $("#div2").fadeOut("slow");
+			    $("#div3").fadeOut(2000);
+			});
+			$("#button3").click(function(){
+			    $("#div1").fadeToggle();
+			    $("#div2").fadeToggle("slow");
+			    $("#div3").fadeToggle(2000);
+			});
+			$("#button4").click(function(){
+			    $("#div1").fadeTo("slow", 0.2);
+			    $("#div2").fadeTo("slow", 0.4);
+			    $("#div3").fadeTo("slow", 0.6);
+			});
+
+		//slide
+			$("#flip").click(function(){
+			    $("#panel").slideDown("slow");
+			});
+			$("#flip1").click(function(){
+			    $("#panel").slideUp("slow");
+			});
+			$("#flip2").click(function(){
+			    $("#panel").slideToggle("slow");
+			});
+
+		//Animate
+		$("#button5").click(function(){
+		    var div = $("#div4");
+		    div.animate({height: '300px', opacity: '0.4'}, "slow");
+		    div.animate({width: '300px', opacity: '0.8'}, "slow");
+		    div.animate({height: '100px', opacity: '0.4'}, "slow");
+		    div.animate({width: '100px', opacity: '0.8'}, "slow");
+		});
+
+		//Stop
+		$("#flip4").click(function(){
+		    $("#panel1").slideDown(5000);
+		});
+		  $("#stop").click(function(){
+		    $("#panel1").stop();
+		});
+
+		//Callback Function
+		$("#button6").click(function(){
+		    $("#ppp").hide(1000);
+		    alert("The paragraph is now hidden");
+		});
+
+		//chaining jquery
+		$("#button7").click(function(){
+		    $("#p1").css("color", "red")
+		      .slideUp(2000)
+		      .slideDown(2000);
+		});
+
+	});
+    </script>
+    <style> 
+	#panel, #flip,#filp1,#flip2 {
+	  padding: 5px;
+	  text-align: center;
+	  background-color: #e5eecc;
+	  border: solid 1px #c3c3c3;
+	}
+
+	#panel {
+	  padding: 50px;
+	  display: none;
+	}
+	#panel1, #flip4 {
+	  padding: 5px;
+	  font-size: 18px;
+	  text-align: center;
+	  background-color: #555;
+	  color: white;
+	  border: solid 1px #666;
+	  border-radius: 3px;
+	}
+
+	#panel1 {
+	  padding: 50px;
+	  display: none;
+	}
+	p{
+		font-weight: bold;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 " style="margin-top: 30px;margin-bottom: 50px">
+
+				<!-- hide, show, toggle -->
+				<p id="pp"> <b>Jquery hide ,show, toggle</b></p>
+				<button id="hide">Hide</button>
+				<button id="show">Show</button>
+				<button id="toggle">toggle</button>
+				<br><br>
+
+				<!--Slide -->
+				<p>Slide</p>
+				<button id="flip">Slide down panel</button>
+				<button id="flip1">Slide up panel</button>
+				<button id="flip2">Slide toggle panel</button>
+				<div id="panel">Hello world!</div>
+				<br><br>
+
+				<!--Stop -->
+				<p>Stop</p>
+				<button id="stop">Stop sliding</button>
+				<div id="flip4">Click to slide down panel</div>
+				<div id="panel1">Hello world!</div>
+				<br><br>
+
+				<!-- Callback Function-->
+				<p>Callback Function</p>
+				<button id="button6">Hide</button>
+				<p id="ppp">This is a paragraph with little content.</p>
+				<br><br>
+
+				<!-- Chaining Jquery-->
+				<p>Chaining Jquery</p>
+				<p id="p1">jQuery is fun!!</p>
+				<button id="button7">Click me</button>
+
+			</div>
+			
+			<div class="col-md-6">
+
+				<!-- fadeIn, FadeOut, FadeToggle, FadeTo -->
+				<p><b> Demonstrate fade with different parameters.</b></p>
+				<button id="button1">Click to fade In boxes</button><br><br>
+				<button id="button2">Click to fade Out boxes</button><br><br>
+				<button id="button3">Click to fade Toggle boxes</button><br><br>
+				<button id="button4">Click to fade To boxes</button><br><br>
+				<div id="div1" style="width:40px;height:40px;background-color:red;"></div><br>
+				<div id="div2" style="width:40px;height:40px;background-color:green;"></div><br>
+				<div id="div3" style="width:40px;height:40px;background-color:blue;"></div>
+				<br><br>
+
+
+				<p>Animation</p>
+				<button id="button5">Start Animation</button>
+				<p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+				<div id="div4" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+				<br><br>
+
+
+			</div>
+		</div>
+	</div>
+	<div class="container" style="margin-top: 30px;">
+		<div class="row">
+			<!--  -->
+			<div class="col-md-6">
+				
+			</div>
+			<!-- Animation -->
+			<div class="col-md-6">
+				
+			</div>
+	</div>
+</body>
+</html>
